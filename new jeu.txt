@@ -1,0 +1,23 @@
+Titre : Hero of the village
+
+Element : Nature, Feu, Eau, Electrique
+
+Génération procédural de case sur une grande aire de jeu
+
+Difficulté selon la distance
+
+Système de level avec arbres de compétences et boost de stats général à chaque level
+
+Système d'inventaire et d'équipement
+
+Centre de la carte village
+
+Armes de différents type
+
+Case différentes : Magasin, Combat de monstres, Coffre au trésor, Combat de boss ( à partir d'une difficulté définit )
+
+à la mort perte de 25% de l'argent
+
+Système de combat automatique
+
+But : Devenir le plus fort et nettoyer toutes la cartes des monstres et boss pour la sécurité du village
