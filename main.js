@@ -1,5 +1,5 @@
 let size_case = 200;
-let size_map = 700;
+let size_map = 3000;
 let left_base = parseFloat($("#center_origin").css("left"));
 let top_base = parseFloat($("#center_origin").css("top"));
 let player_pos_X = left_base;
