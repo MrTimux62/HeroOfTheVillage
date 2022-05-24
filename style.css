@@ -71,3 +71,68 @@ html, body {
 .moveoff {
     cursor: default;
 }
+
+#bottom-right {
+    position: fixed;
+    right: 2vw;
+    bottom: 2vh;
+    display: inline-flex;
+    gap: 4vw;
+    z-index: 20;
+}
+
+#bottom-right img{
+    max-width: 3vw;
+    transition: transform 500ms;
+    margin: 8px;
+}
+
+#bottom-right img:hover{
+    transform: scale(1.2);
+    transition: transform 500ms;
+}
+
+#bottom-right div{
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+#top-left {
+    position: fixed;
+    left: 2vw;
+    top: 2vh;
+    display: inline-flex;
+    z-index: 20;
+    align-items: center;
+}
+
+#portrait {
+    background-color: white;
+    border: 2px solid black;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#portrait img{
+    width: 6vw;
+    margin: -10px;
+}
+
+#life-bar {
+    width: 12vw;
+    height: 2vh;
+    border: 2px solid black;
+    margin-left: -4px;
+    z-index: -1;
+}
+
+
+#life {
+    background-color: rgb(180, 36, 36);
+    width: 20%;
+    height: 100%;
+}

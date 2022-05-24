@@ -9,6 +9,8 @@ let top_origin = top_base - size_case;
 let border_distance = size_case;
 let direction = "bottom";
 let case_difficulty = 1;
+let max_shop = 1;
+let max_boss = 1;
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -70,12 +72,23 @@ for (let index = 0; index < size_map; index++) {
     let random_nb = getRandomInt(100);
     let type_case;
 
-    if (random_nb < 15) {
-        type_case = "shop";
-    } else if (random_nb < 90) {
+    if (random_nb < 30) {
+        if (max_shop <= 0) {
+            type_case = "monster";
+        } else {
+            type_case = "shop";
+            max_shop --;
+        }
+        
+    } else if (random_nb < 70) {
         type_case = "monster";
     } else if (random_nb < 100) {
-        type_case = "boss";
+        if (max_boss <= 0) {
+            type_case = "monster";
+        } else {
+            type_case = "boss";
+            max_boss--;
+        }
     }
 
     $("#GAME").append("<div id='case_" + index + "' class='case " + move_parameters + "' style='left:" + left_origin + "px; top:" + top_origin + "px;'><div id='center_case_" + index + " ' class='center_case discover-none type-" + type_case + " ' name='"+border_distance / 200+"'>?</div></div>");
@@ -89,6 +102,8 @@ for (let index = 0; index < size_map; index++) {
         top_origin = top_origin - size_case;
         left_origin = left_origin + size_case;
         direction = "right";
+        max_boss = case_difficulty;
+        max_shop = case_difficulty + 1;
     } else if (parseFloat(left_origin) == left_base + border_distance && parseFloat(top_origin) == top_base - border_distance) {
         direction = "bottom";
     } else if (parseFloat(left_origin) == left_base + border_distance && parseFloat(top_origin) == top_base + border_distance) {
@@ -123,7 +138,6 @@ for (let index = 0; index < size_map; index++) {
 //////////////// DEPLACEMENT /////////////////////
 
 $(".case").click(function (e) {
-    console.log("bim");
     if ($(this).hasClass("moveon")) {
         player_pos_X = parseFloat($(this).css("left"));
         player_pos_Y = parseFloat($(this).css("top"));
