@@ -37,19 +37,19 @@ function updatePlayer() {
 
 $(window).resize(function () {
     $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
-    $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
+    //$(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
     setTimeout(() => {
-        $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
+        //$(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
         $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
     }, 500);
 });
 
 $(document).ready(function () {
     $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
-    $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
+    //$(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
 
     setTimeout(() => {
-        $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
+        //$(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
         $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
     }, 1000);
 });
