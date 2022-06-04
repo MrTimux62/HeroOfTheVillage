@@ -46,7 +46,7 @@ function focusPlayer() {
         $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
         setTimeout(() => {
             $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
-        }, 500);
+        }, 1000);
     }
     
 }
