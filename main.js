@@ -35,23 +35,28 @@ function updatePlayer() {
 
 //////////////// SCROLL CONTROL /////////////////////
 
-$(window).resize(function () {
-    $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
-    //$(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
-    setTimeout(() => {
-        //$(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
+function focusPlayer() {
+    if (parseFloat($(window).scrollTop()) > (parseFloat(player_pos_Y) - window.innerHeight / 2 - 5) && parseFloat($(window).scrollTop()) < (parseFloat(player_pos_Y) - window.innerHeight / 2 + 5)) {
         $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
-    }, 500);
+
+    } else if (parseFloat($(window).scrollLeft()) > (parseFloat(player_pos_X) - window.innerWidth / 2 - 5) && parseFloat($(window).scrollLeft()) < (parseFloat(player_pos_X) - window.innerWidth / 2 + 5)) {
+        $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
+
+    } else {
+        $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
+        setTimeout(() => {
+            $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
+        }, 500);
+    }
+    
+}
+
+$(window).resize(function () {
+    focusPlayer();
 });
 
 $(document).ready(function () {
-    $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
-    //$(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
-
-    setTimeout(() => {
-        //$(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
-        $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
-    }, 1000);
+    focusPlayer();
 });
 
 //////////////////////////////////////////////////////
@@ -142,10 +147,7 @@ $(".case").click(function (e) {
         player_pos_X = parseFloat($(this).css("left"));
         player_pos_Y = parseFloat($(this).css("top"));
         updatePlayer();
-
-        $(window).scrollTop(parseFloat(player_pos_Y) - window.innerHeight / 2);
-        $(window).scrollLeft(parseFloat(player_pos_X) - window.innerWidth / 2);
-
+        focusPlayer();
         setTimeout(() => {
             if ($(this).find("div").hasClass("discover-none")) {
                 $(this).find("div").removeClass("discover-none")
